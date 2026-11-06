@@ -1,0 +1,16 @@
+diff --git a/scripts/link-vmlinux.sh b/scripts/link-vmlinux.sh
+index a9434a72c..6367bfe85 100755
+--- a/scripts/link-vmlinux.sh
++++ b/scripts/link-vmlinux.sh
+@@ -125,6 +125,11 @@ gen_btf()
+ 	vmlinux_link ${1}
+ 
+ 	info "BTF" ${2}
++	# Pinned Kleaf DWARF prefix; exclude only KSU from the OEM BTF base.
++	# Keep all DWARF intact. Byte equality to OEM is a separate release gate.
++	if is_enabled CONFIG_KSU; then
++		PAHOLE_FLAGS="${PAHOLE_FLAGS} --cu_exclude=/proc/self/cwd/common/drivers/kernelsu/"
++	fi
+ 	LLVM_OBJCOPY="${OBJCOPY}" ${PAHOLE} -J ${PAHOLE_FLAGS} ${1}
+ 
+ 	# Create ${2} which contains just .BTF section but no symbols. Add

@@ -1,0 +1,5 @@
+# Provenance and licensing
+
+Original audit tools/export CLI and documents: Syldegil, MIT (LICENSE). Linux-derived patch patches/btf-cu-filter.patch: GPL-2.0-only, LICENSES/GPL-2.0; modification by Syldegil. Its target scripts/link-vmlinux.sh at the pinned AOSP kernel/common revision declares SPDX GPL-2.0. Upstream Linux/AOSP contributors retain copyright; no full kernel tree, OEM modules or binaries are distributed.
+
+References: [AOSP kernel/common](https://android.googlesource.com/kernel/common/), [NothingOSS](https://github.com/NothingOSS), [KernelSU-Next](https://github.com/KernelSU-Next/KernelSU-Next), [SUSFS/simonpunk](https://gitlab.com/simonpunk/susfs4ksu), [dwarves](https://git.kernel.org/pub/scm/devel/pahole/pahole.git/), [libbpf](https://github.com/libbpf/libbpf). Licenses of separately acquired projects remain applicable. KernelSU/SUSFS source is referenced, not relicensed or redistributed. The complete private integration and build scripts are excluded because their inputs and host assumptions are not a portable public recipe.
